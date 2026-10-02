@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+  <title>AlagaMap — Mapa</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <link rel="stylesheet" href="./css/style.css" />
+</head>
+<body>
+  <section id="appScreen" class="screen active">
+    <div id="sidebar">
+      <header>
+        <div class="profile-row">
+          <div>
+            <h1>Alaga<span>Map</span></h1>
+            <div class="sub">Rotas que desviam de alagamentos · MVP</div>
+          </div>
+          <div class="user-pill">
+            <span>👤</span>
+            <span id="userName">Usuário</span>
+          </div>
+        </div>
+      </header>
+
+      <div class="sec">
+        <h2>Traçar rota</h2>
+        <label>Origem</label>
+        <select id="origem"></select>
+        <label>Destino</label>
+        <select id="destino"></select>
+        <button id="btnRota">Calcular rotas seguras</button>
+        <div class="hint">Clique no mapa para definir origem/destino manualmente (1º clique = origem, 2º = destino).</div>
+      </div>
+
+      <div class="sec filter-panel">
+        <div class="panel-header">
+          <h2>Filtrar por bairro</h2>
+          <button id="btnLocalizar" class="secondary-btn small-btn">📍 Localizar</button>
+        </div>
+        <select id="filtroBairro">
+          <option value="Todos">Todos os bairros</option>
+        </select>
+      </div>
+
+      <div class="sec">
+        <h2>Rotas sugeridas</h2>
+        <div id="rotas"><div class="empty">Nenhuma rota calculada ainda.</div></div>
+      </div>
+
+      <div class="sec">
+        <h2>Reportar alagamento</h2>
+        <div class="chips" id="sevChips">
+          <div class="chip" data-sev="1">Água baixa</div>
+          <div class="chip on" data-sev="2">Transitável c/ risco</div>
+          <div class="chip" data-sev="3">Intransitável</div>
+        </div>
+        <label>Referência</label>
+        <input id="refTxt" placeholder="Ex.: Av. Beira Rio, altura do nº 400" />
+        <button id="btnReport">Marcar no mapa e reportar</button>
+        <div class="hint" id="repHint">Após clicar, toque no ponto alagado no mapa.</div>
+      </div>
+
+      <div class="sec" style="flex:1">
+        <h2>Alertas ativos (<span id="cnt">0</span>)</h2>
+        <div id="lista"></div>
+        <button class="ghost" id="btnLimpar">Limpar alertas expirados</button>
+        <button class="danger" id="logoutBtn" style="margin-top: 12px;">Sair</button>
+      </div>
+
+      <div class="sec history-panel">
+        <h2>Histórico</h2>
+        <div id="historicoLista" class="history-list"></div>
+      </div>
+    </div>
+
+    <div id="mapWrap">
+      <div id="map"></div>
+    </div>
+  </section>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="./js/app.js"></script>
+</body>
+</html>
