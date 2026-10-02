@@ -139,12 +139,6 @@ Ajustes previstos:
 1. Clone o repositório: `git clone https://github.com/Marcaogabriel/AlagaMap.git` (ou baixe o ZIP).
 2. Abra a pasta do projeto e rode **uma** das opções:
    - **Direto no navegador:** abra o arquivo `index.html`.
-   - **Servidor local (recomendado, para a geolocalização funcionar):**
-     ```bash
-     # na pasta do projeto
-     python -m http.server 5500
-     ```
-     Depois acesse `http://localhost:5500`.
      (Alternativa: extensão *Live Server* do VS Code.)
 3. Na tela inicial, crie uma conta em **Cadastro** ou entre com uma conta de demonstração:
 
